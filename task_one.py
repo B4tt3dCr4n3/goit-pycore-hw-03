@@ -1,5 +1,5 @@
 """Task 1: Write a function that takes a date as input and returns the number of days 
-between the current date and that date."""
+between the current date and a given date."""
 
 from datetime import datetime
 
