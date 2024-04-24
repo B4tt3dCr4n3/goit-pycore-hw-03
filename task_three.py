@@ -6,16 +6,16 @@ import re
 def normalize_phone(phone_number: str) -> str:
     """Normalize a phone number by removing certain characters and adding a 
     country code if necessary."""
-    pattern = r"[()\\n\\t;,\-:!\.\\ ]"
-    replacement = ""
-    phone_number = re.sub(pattern, replacement, phone_number)
+    pattern = r"[()\\n\\t;,\-:!\.\\ ]" # Define the pattern to remove
+    replacement = "" # Define the replacement
+    phone_number = re.sub(pattern, replacement, phone_number) # Remove the characters
 
-    if phone_number.startswith('0'):
-        phone_number = '+38' + phone_number
+    if phone_number.startswith('0'): # Check if the number starts with 0
+        phone_number = '+38' + phone_number # Add the country code
 
-    elif phone_number.startswith('380'):
-        phone_number = '+' + phone_number
-    return phone_number
+    elif phone_number.startswith('380'): # Check if the number starts with 380
+        phone_number = '+' + phone_number # Add the country code
+    return phone_number # Return the normalized phone number
 
 raw_numbers = [
     "067\\t123 4567",
@@ -30,8 +30,8 @@ raw_numbers = [
 ]
 
 
-sanitized_numbers = [normalize_phone(phone_number) for phone_number in raw_numbers]
-print("Normalized phone numbers for SMS campaign:", sanitized_numbers)
+sanitized_numbers = [normalize_phone(phone_number) for phone_number in raw_numbers] # Normalize the phone numbers
+print("Normalized phone numbers for SMS campaign:", sanitized_numbers) # Print the normalized phone numbers
 
 # """Task 3: Write a function that normalize a list of phone numbers by removing 
 # certain characters and adding a country code if necessary."""
